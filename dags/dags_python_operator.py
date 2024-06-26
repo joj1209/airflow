@@ -14,11 +14,11 @@ with DAG(
     # params={"example_key": "example_value"},
 ) as dag:
     
-   def select_fruit():
-       fruit = ['APPLE','BANANA','ORANGE','AVOCADO']
-       rand_init = random.randint(0,3)
-       print(fruit[rand_init])
-       
+    def select_fruit():
+        fruit = ['APPLE','BANANA','ORANGE','AVOCADO']
+        rand_init = random.randint(0,3)
+        print(fruit[rand_init])
+
     py_t1 = PythonOperator(
         task_id = 'py_t1'
         python_callable=select_fruit
