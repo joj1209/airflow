@@ -10,7 +10,7 @@ with DAG(
     start_date=pendulum.datetime(2024, 1, 1, tz="Asia/Seoul"),
     catchup=False,
     # dagrun_timeout=datetime.timedelta(minutes=60),
-    # tags=["example", "example2"],
+    tags=["airflow_pj"],
     # params={"example_key": "example_value"},
 ) as dag:
 
