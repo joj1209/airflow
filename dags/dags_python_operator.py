@@ -6,6 +6,7 @@ from airflow.operators.python import PythonOperator
 
 
 
+
 with DAG(
     dag_id="dags_python_operator",
     schedule="30 6 * * *",
