@@ -4,9 +4,6 @@ import random
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-
-
-
 with DAG(
     dag_id="dags_python_operator",
     schedule="30 6 * * *",
@@ -23,7 +20,7 @@ with DAG(
         print(fruit[rand_init])
 
     py_t1 = PythonOperator(
-        task_id = 'py_t1'
+        task_id = 'py_t1',
         python_callable=select_fruit
     )
     
