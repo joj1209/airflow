@@ -28,6 +28,8 @@ with DAG(
         bash_command="echo $STATUS && echo $DATA && echo $OPTION_CNT",
         do_xcom_push=False
     )
+    
+    python_push_xcom() >> bash_pull
 
     bash_push = BashOperator(
         task_id="bash_push",
