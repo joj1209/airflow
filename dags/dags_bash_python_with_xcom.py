@@ -21,7 +21,7 @@ with DAG(
         return result_dict
 
     bash_pull = BashOperator(
-        task_id="bash_pull",
+        task_id='bash_pull',
         env={'STATUS':'{{ ti.xcom_pull(task_ids="python_push")["status"]}}',
             'DATA':'{{ ti.xcom_pull(task_ids="python_push")["data"]}}',
             'OPTION_CNT':'{{ ti.xcom_pull(task_ids="python_push")["option_cnt"]}}'},
@@ -32,7 +32,7 @@ with DAG(
     python_push_xcom() >> bash_pull
 
     bash_push = BashOperator(
-        task_id="bash_push",
+        task_id='bash_push',
         bash_command='echo PUSH_START '
                     '{{ ti.xcom_push(key="bash_pushed",value=200) }} &&'
                     'echo COMPLETE'
