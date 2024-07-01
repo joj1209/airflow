@@ -11,7 +11,7 @@ with DAG(
     catchup=False,
     # dagrun_timeout=datetime.timedelta(minutes=60),
     tags=["airflow_pj"],
-    params={"example_key": "example_value"},
+    # params={"example_key": "example_value"},
 ) as dag:
     
         # [START howto_operator_bash]
