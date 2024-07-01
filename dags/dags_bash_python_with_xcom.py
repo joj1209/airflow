@@ -17,7 +17,7 @@ with DAG(
     
     @task(task_id='python_push')
     def python_push_xcom(**kwargs):
-        result_dict = {'state':'Good','data':[1,2,3],'options_cnt':100}
+        result_dict = {'status':'Good','data':[1,2,3],'options_cnt':100}
         return result_dict
 
     bash_pull = BashOperator(
@@ -42,7 +42,7 @@ with DAG(
     def python_pull_xcom(**kwargs):
         ti = kwargs['ti']
         status_value = ti.xcom_pull(key='bash_pushed')
-        return_value = ti.xcom_pull(task_id='bash_push')
+        return_value = ti.xcom_pull(task_ids='bash_push')
         print('status_value:' + str(status_value))
         print('return_value:' + return_value)
     
