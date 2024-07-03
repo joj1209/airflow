@@ -23,7 +23,7 @@ with DAG(
             item_lst = ['A','B','C']
             selected_item = random.choice(item_lst)
             if selected_item =='A':
-                return 'task_A'
+                return 'task_a'
             elif selected_item in ['B','C']:
                 return ['task_b','task_c']
             
