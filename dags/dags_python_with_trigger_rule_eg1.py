@@ -7,6 +7,8 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 from airflow.exceptions import AirflowException
 
+import pendulum
+
 with DAG(
     dag_id="dags_python_with_trigger_rule_eg1",
     schedule="30 6 * * *",
