@@ -19,7 +19,6 @@ with DAG(
     # params={"example_key": "example_value"},
 ) as dag:
 
-    @task(task_id='python_task')
     def inner_func(**kwargs):
         msg = kwargs.get('msg') or ''
         pprint(msg)
@@ -35,7 +34,7 @@ with DAG(
         inner_function2 = PythonOperator(
             task_id='inner_function2',
             python_callable=inner_func,
-            # op_kwargs={'msg':'첫 번째 TaskGroup내 두 번째 task'}
+            op_kwargs={'msg':'첫 번째 TaskGroup내 두 번째 task'}
         )
         
         inner_func1() >> inner_function2
