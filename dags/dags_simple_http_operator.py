@@ -29,11 +29,11 @@ with DAG(
     def python_2(**kwargs):
         ti = kwargs['ti']
         rslt = ti.xcom_pull(task_ids='tb_cycle_station_info')
-        print(kwargs)
-        print(rslt)
+        # print(kwargs)
+        # print(rslt)
         import json
         from pprint import pprint
         
-        # pprint(json.loads(rslt))
+        pprint(json.loads(rslt))
         
     tb_cycle_station_info >> python_2()
