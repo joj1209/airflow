@@ -33,9 +33,10 @@ class SeoulApliToCsvOperator(BaseOperator):
                 start_row = end_row + 1
                 end_row += 1000
                 
+        # csv 저장
         if not os.path.exists(self.path):
             os.system(f'mkdir -p {self.path}')
-        total_row_df.to_csv(self.path + '/' + self.file_name, encoding='utf-8', index=false)
+        total_row_df.to_csv(self.path + '/' + self.file_name, encoding='utf-8', index=False)
         
     def _call_api(self, base_url, start_row, end_row):
         import requests
