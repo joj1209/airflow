@@ -13,7 +13,7 @@ with DAG(
     def check_api_update(http_conn_id, endpoint, base_dt_col, **kwargs):
         import requests
         import json
-        import dateutil import relativedelta
+        from dateutil import relativedelta
         connection = BaseHook.get_connection(http_conn_id)
         url = f'http://{connection.host}:{connection.port}/{endpoint}/1/100'
         response = requests.get(url)
