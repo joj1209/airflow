@@ -34,10 +34,10 @@ with DAG(
         today_ymd = kwargs.get('data_interval_end').in_timezone('Asia/Seoul').strftime('%Y-%m-%d')
         if last_date >= today_ymd:
             print(f'생성 확인(배치 날짜: {today_ymd} / API Last 날짜: {last_date})')
-            return True
+            return False # 반대로 설정
         else:
             print(f'Update 미완료 (배치 날짜: {today_ymd} / API Last 날짜:{last_date})')
-            return False
+            return True # 반대로 설정
         
     sensor_task = PythonSensor(
         task_id='sensor_task',
