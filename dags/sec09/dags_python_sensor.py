@@ -7,7 +7,8 @@ with DAG(
     dag_id='dags_python_sensor',
     start_date=pendulum.datetime(2023,4,1, tz='Asia/Seoul'),
     schedule='10 1 * * *',
-    catchup=False
+    catchup=False,
+    ags=["airflow_pj","section_9"]
 ) as dag:
     
     def check_api_update(http_conn_id, endpoint, base_dt_col, **kwargs):
