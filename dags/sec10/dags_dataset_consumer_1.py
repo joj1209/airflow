@@ -10,9 +10,9 @@ with DAG(
         schedule=[dataset_dags_dataset_producer_1],
         start_date=pendulum.datetime(2023, 4, 1, tz='Asia/Seoul'),
         catchup=False,
-        tags=["airflow_pj","section_10"]
+        tags=["airflow_pj","section_10"],
 ) as dag:
     bash_task = BashOperator(
-        task_id='bash_task',
+        task_id='bash_task', 
         bash_command='echo {{ ti.run_id }} && echo "producer_1 이 완료되면 수행"'
     )
