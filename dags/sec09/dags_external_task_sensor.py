@@ -1,6 +1,6 @@
 from airflow import DAG
 from airflow.sensors.external_task import ExternalTaskSensor
-import Pendulum
+import pendulum
 from datetime import timedelta
 from airflow.utils.state import State
 
