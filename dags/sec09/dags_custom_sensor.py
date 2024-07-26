@@ -16,7 +16,7 @@ with DAG(
         dataset_nm='TbCorona19CountStatus',
         base_dt_col='S_DT',
         # day_off=0,
-        day_off=-600
+        day_off=-600,
         poke_interval=600,
         mode='reschedule'
     )
