@@ -17,7 +17,7 @@ with DAG(
         task_id='external_task_sensor_a',
         external_dag_id='dags_branch_python_operator',
         external_task_id='task_a',
-        allowed_states=[State.SKIPPED],
+        allowed_states=[State.SUCCESS],
         # execution_delta=timedelta(hours=6),
         poke_interval=10
     )
