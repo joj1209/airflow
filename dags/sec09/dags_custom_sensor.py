@@ -26,7 +26,7 @@ with DAG(
         dataset_nm='tvCorona19VaccinestatNew',
         base_dt_col='S_VC_DT',
         # day_off=-1,
-        day_off=-600,
+        day_off=-500,
         poke_interval=600,
         mode='reschedule'
     )
