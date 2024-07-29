@@ -18,7 +18,8 @@ with DAG(
     default_args={
         'email_on_failure': True,
         'email': email_lst
-    }
+    },
+    tags=["airflow_pj","section_10"],
 ) as dag:
     @task(task_id='python_fail')
     def python_task_func():
