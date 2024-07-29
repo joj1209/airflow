@@ -33,5 +33,5 @@ with DAG(
     
     bash_success = BashOperator(
         task_id='bash_success',
-        bask_command='exit 0',
+        bash_command='exit 0',
     )
