@@ -15,7 +15,7 @@ with DAG(
     schedule=None,
     dagrun_timeout=timedelta(minutes=1),
     default_args={
-        'execution_timeout': timedelta(seconds=20),
+        'execution_timeout': timedelta(seconds=40),
         'email_on_failure': True,
         'email': email_lst
     },
