@@ -1,4 +1,4 @@
-bfrom airflow.providers.postgres.hooks.postgres import PostgresHook
+from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.decorators import task
 from airflow.operators.email import EmailOperator
 from airflow import DAG
@@ -19,7 +19,7 @@ with DAG(
 ) as dag:
     
     @task(task_id='get_daily_monitoring_rslt_task')
-    def get_daily_monitoring_rslt_task():
+    def get_daily_monitoring_rslt_task(**kwargs):
         postgres_hook = PostgresHook(postgres_conn_id='conn-db-postgres-airflow')
         with closing(postgres_hook.get_conn()) as conn:
             with closing(conn.cursor()) as cursor:
@@ -64,7 +64,7 @@ with DAG(
                     yesterday = pendulum.yesterday('Asia/Seoul').strftime('%Y-%m-%d')
                     now = pendulum.now('Asia/Seoul').strftime('%Y-%m-%d %H:%M:%S')
                     
-                    ti = kwags['ti']
+                    ti = kwargs['ti']
                     ti.xcom_push(key='subject', value=f"DAG 수행현황 알람({yesterday}~{now})")
                     html_content = f'''<h1>DAG 수행현황 알람({yesterday} ~ {now})</h1><br/><br/>
 <h2>1. 수행 대상 DAG 개수: {rslt.shape[0]}</h2><br/>
