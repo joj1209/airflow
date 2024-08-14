@@ -72,6 +72,9 @@ with DAG(
 &nbsp;&nbsp;&nbsp;&nbsp;(2) 실패: {failed_df.shape[0]}<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;(3) 미수행: {skipped_df.shape[0]}<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;(4) 수행 중: {running_df.shape[0]}<br/><br/>''' + html_content
+
+                    print(html_content)
+                    return html_content
                 
     send_email = EmailOperator(
         task_id='send_email',
