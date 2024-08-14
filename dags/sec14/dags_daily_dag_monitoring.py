@@ -17,7 +17,7 @@ with DAG(
     
     @task(task_id='get_daily_monitoring_rslt_task')
     def get_daily_monitoring_rslt_task():
-        postgres_hook = PostgresHook(postres_conn_id='conn-db-postgres-airflow')
+        postgres_hook = PostgresHook(postgres_conn_id='conn-db-postgres-airflow')
         with closing(postgres_hook.get_conn()) as conn:
             with closing(conn.cursor()) as cursor:
                 with open('/opt/airflow/files/sqls/daily_dag_monitoring.sql', 'r') as sql_file:
@@ -35,7 +35,10 @@ with DAG(
                     if not failed_df.empty:
                         for idx, row in failed_df.iterrows():
                             return_blocks.append(sb.section_text(f"*DAG:* {row['dag_id']}\n*예정일자:* {row['next_dagrun_data_interval_end']}"))
-                            
+                    else:
+                        return_blocks.append(sb.section_text("없음"))
+                    return_blocks.append(sb.divider())
+                    
                     # 2) 미수행 대상
                     skipped_df = rslt.query("(run_cnt == 0)")
                     return_blocks.append(sb.section_text("*3 미수행 대상*"))
