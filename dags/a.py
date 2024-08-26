@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from config.pykrx_api import get_prompt_for_chatgpt
 
 # print(os.urandom(16))
 
@@ -12,3 +13,6 @@ print(BASE_DIR1)
 print(BASE_DIR2)
 print(BASE_DIR3)
 print(BASE_DIR4)
+
+aa=get_prompt_for_chatgpt('20240816','KOSPI',5)
+print(aa)
