@@ -9,7 +9,7 @@ from airflow.operators.empty import EmptyOperator
 def execute_query_with_psycopg(my_query, **kwargs):
     print(my_query)  # 'value_1'
     conn_args = dict(
-        host='',
+        host='localhost',
         user='',
         password='',
         dbname='',
