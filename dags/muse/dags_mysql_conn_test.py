@@ -8,11 +8,7 @@ from airflow.operators.empty import EmptyOperator
 def execute_query_with_psycopg(my_query, **kwargs):
     print(my_query)  # 'value_1'
     conn_args = dict(
-        host='localhost',
-        user='postgres',
-        password='muse',
-        dbname='muse',
-        port=5432)
+)
     conn = psycopg2.connect(**conn_args)
     cur = conn.cursor()
     cur.execute(my_query)
