@@ -22,12 +22,12 @@ def execute_query_with_psycopg(my_query, **kwargs):
         print(row)
         
 with DAG(
-    dag_id="dags_conn_test",
+    dag_id="dags_local_conn",
     schedule="0 0 * * *",
     start_date=pendulum.datetime(2024, 1, 1, tz="Asia/Seoul"),
     catchup=False,
     # dagrun_timeout=datetime.timedelta(minutes=60),
-    tags=["airflow_pj"],
+    tags=["muse"],
     params={"example_key": "example_value"},
 ) as dag:
     
