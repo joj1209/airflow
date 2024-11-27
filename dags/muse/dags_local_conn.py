@@ -2,7 +2,7 @@ import datetime
 import pendulum
 import psycopg2
 from airflow import DAG
-from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
 from airflow.operators.empty import EmptyOperator
 
 
@@ -35,4 +35,9 @@ with DAG(
         task_id="t1"
     )
     
-    t1
+    t2 = PythonOperator(
+        task_id="test2_task",
+        python_callable=execute_query_with_psycopg,
+        op_kwargs={"my_query": 'select 1'})
+    
+    t1 >> t2
