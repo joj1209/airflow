@@ -10,8 +10,8 @@ def execute_query_with_psycopg(my_query, **kwargs):
     print(my_query)  # 'value_1'
     conn_args = dict(
         host='localhost',
-        user='',
-        password='',
+        user='muse',
+        password='muse',
         dbname='',
         port=5432)
     conn = psycopg2.connect(**conn_args)
