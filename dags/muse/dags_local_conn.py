@@ -1,10 +1,26 @@
 import datetime
 import pendulum
-
+import psycopg2
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.empty import EmptyOperator
 
+
+def execute_query_with_psycopg(my_query, **kwargs):
+    print(my_query)  # 'value_1'
+    conn_args = dict(
+        host='',
+        user='',
+        password='',
+        dbname='',
+        port=5432)
+    conn = psycopg2.connect(**conn_args)
+    cur = conn.cursor()
+    cur.execute(my_query)
+
+    for row in cur:
+        print(row)
+        
 with DAG(
     dag_id="dags_conn_test",
     schedule="0 0 * * *",
