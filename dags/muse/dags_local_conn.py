@@ -20,6 +20,8 @@ def execute_query_with_psycopg(my_query, **kwargs):
 
     for row in cur:
         print(row)
+    
+sql_select_table = """select * from td_dbms_api_s;"""  
         
 with DAG(
     dag_id="dags_local_conn",
@@ -29,7 +31,7 @@ with DAG(
     # dagrun_timeout=datetime.timedelta(minutes=60),
     tags=["muse"],
     params={"example_key": "example_value"},
-) as dag:
+) as dag:  
     
     t1 = EmptyOperator(
         task_id="t1"
@@ -41,8 +43,9 @@ with DAG(
         op_kwargs={"my_query": 'select 1'})
     
     t3 = MySqlOperator(
-        task_id="insert_employees_data",
-        mysql_conn_id="conn_mysql"        
+        task_id="MySqlOperator",
+        mysql_conn_id="conn_mysql",
+        sql=sql_select_table        
     )
     
     t1 >> t2
