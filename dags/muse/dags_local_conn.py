@@ -13,7 +13,7 @@ def execute_query_with_psycopg(my_query, **kwargs):
         user='muse',
         password='muse',
         dbname='muse',
-        port=5432)
+        port=3306)
     conn = psycopg2.connect(**conn_args)
     cur = conn.cursor()
     cur.execute(my_query)
