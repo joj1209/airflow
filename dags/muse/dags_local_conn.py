@@ -48,4 +48,4 @@ with DAG(
         sql=sql_select_table        
     )
     
-    t1 >> t2
+    t1 >> t2 >> t3
