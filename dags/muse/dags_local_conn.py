@@ -9,7 +9,7 @@ from airflow.providers.mysql.operators.mysql import MySqlOperator
 def execute_query_with_psycopg(my_query, **kwargs):
     print(my_query)  # 'value_1'
     conn_args = dict(
-        host='192.168.1.55',
+        host='192.168.1.56',
         user='muse',
         password='muse',
         dbname='muse',
