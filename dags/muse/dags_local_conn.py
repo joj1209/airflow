@@ -4,7 +4,7 @@ import psycopg2
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.operators.empty import EmptyOperator
-
+from airflow.providers.mysql.operators.mysql import MySqlOperator
 
 def execute_query_with_psycopg(my_query, **kwargs):
     print(my_query)  # 'value_1'
@@ -39,5 +39,11 @@ with DAG(
         task_id="test2_task",
         python_callable=execute_query_with_psycopg,
         op_kwargs={"my_query": 'select 1'})
+    
+    t3 = MySqlOperator(
+        task_id="insert_employees_data",
+        mysql_conn_id="conn_mysql",
+        
+    )
     
     t1 >> t2
