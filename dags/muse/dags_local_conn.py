@@ -42,8 +42,7 @@ with DAG(
     
     t3 = MySqlOperator(
         task_id="insert_employees_data",
-        mysql_conn_id="conn_mysql",
-        
+        mysql_conn_id="conn_mysql"        
     )
     
     t1 >> t2
