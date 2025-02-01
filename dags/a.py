@@ -16,3 +16,5 @@ print(BASE_DIR4)
 
 aa=get_prompt_for_chatgpt('20240816','KOSPI',5)
 print(aa)
+
+print("test")
