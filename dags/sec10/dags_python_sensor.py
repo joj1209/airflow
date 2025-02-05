@@ -8,7 +8,7 @@ with DAG(
     start_date=pendulum.datetime(2023,4,1, tz='Asia/Seoul'),
     schedule='10 1 * * *',
     catchup=False,
-    tags=["airflow_pj","section_9"]
+    tags=["airflow_pj","section_10"]
 ) as dag:
     
     def check_api_update(http_conn_id, endpoint, base_dt_col, **kwargs):

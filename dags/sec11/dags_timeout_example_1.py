@@ -19,7 +19,7 @@ with DAG(
         'email_on_failure': True,
         'email': email_lst
     },
-    tags=["airflow_pj","section_10"],
+    tags=["airflow_pj","section_11"],
 ) as dag:
     bash_sleep_30 = BashOperator(
         task_id='bash_sleep_30',

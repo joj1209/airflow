@@ -10,7 +10,7 @@ with DAG(
         schedule=[dataset_dags_dataset_producer_1],
         start_date=pendulum.datetime(2023, 4, 1, tz='Asia/Seoul'),
         catchup=False,
-        tags=["airflow_pj","section_10"],
+        tags=["airflow_pj","section_11"],
 ) as dag:
     bash_task = BashOperator(
         task_id='bash_task', 

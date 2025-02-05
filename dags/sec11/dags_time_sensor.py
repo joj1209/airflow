@@ -8,7 +8,7 @@ with DAG(
     end_date=pendulum.datetime(2024, 7, 1, 1, 0, 0),
     schedule="*/10 * * * *",
     catchup=True,
-    tags=["airflow_pj","section_10"],
+    tags=["airflow_pj","section_11"],
 ) as dag:
     sync_sensor = DateTimeSensor(
         task_id='sync_sensor',
