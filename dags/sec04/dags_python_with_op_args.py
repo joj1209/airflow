@@ -3,23 +3,22 @@ import pendulum
 import random
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from common.common_func import regist2
+from common.common_func import regist
 
 with DAG(
-    dag_id="dags_python_with_op_kwargs",
+    dag_id="dags_python_with_op_args",
     schedule="30 6 * * *",
     start_date=pendulum.datetime(2024, 1, 1, tz="Asia/Seoul"),
     catchup=False,
-    tags=["airflow_pj"],
+    tags=["airflow_pj","section_4"],
     # dagrun_timeout=datetime.timedelta(minutes=60),    
     # params={"example_key": "example_value"},
 ) as dag:
     
-    regist2_t1 = PythonOperator(
-        task_id = 'regist2_t1',
-        python_callable=regist2,
-        op_args=['bskim','man','kr','seoul'],
-        op_kwargs={'email':'joj@naver.com','phone':'010'}
+    regist_t1 = PythonOperator(
+        task_id = 'regist_t1',
+        python_callable=regist,
+        op_args=['bskim','man','kr','seoul']
     )
     
-    regist2_t1
+    regist_t1
