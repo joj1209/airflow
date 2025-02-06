@@ -11,7 +11,7 @@ with DAG(
     schedule='*/10 * * * *',
     catchup=False,
     sla_miss_callback=sla_miss_callback_to_slack,
-    tags=["airflow_pj","section_12"],
+    tags=["airflow_pj","section_13"],
 ) as dag:
     task_slp100_sla120 = BashOperator(
         task_id='task_slp100_sla120',

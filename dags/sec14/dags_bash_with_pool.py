@@ -10,7 +10,7 @@ with DAG(
     default_args={
         'pool':'pool_small'
     },
-    tags=["airflow_pj","section_13"],
+    tags=["airflow_pj","section_14"],
 ) as dag:
     bash_task_1 = BashOperator(
         task_id='bask_task_1',

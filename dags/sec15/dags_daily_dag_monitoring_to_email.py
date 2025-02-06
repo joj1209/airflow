@@ -15,7 +15,7 @@ with DAG(
     schedule="10 0 * * 6",
     start_date=pendulum.datetime(2023, 5, 1, tz="Asia/Seoul"),
     catchup=False,
-    tags=["airflow_pj","section_14"],
+    tags=["airflow_pj","section_15"],
 ) as dag:
     
     @task(task_id='get_daily_monitoring_rslt_task')

@@ -14,7 +14,7 @@ with DAG(
         'on_failure_callback':on_failure_callback_to_kakao,
         'execution_timeout': timedelta(seconds=60)
     },
-    tags=["airflow_pj","section_12"],
+    tags=["airflow_pj","section_13"],
 ) as dag:
     task_slp_90 = BashOperator(
         task_id='task_slp_90',
